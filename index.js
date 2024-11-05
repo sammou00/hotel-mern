@@ -49,7 +49,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(PATH, 'dist')));
 
 // use middlewares
-app.use(logger);
+if (process.env.NODE_ENV === 'development') {
+    app.use(logger);
+}
 
 // use routes
 app.use('/api', userRoutes);
