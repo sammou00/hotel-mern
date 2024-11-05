@@ -11,6 +11,24 @@ const itemControllers = {
             return res.status(500).json({ msg: err.message });
         }
     },
+
+    getHotelItems: async (req, res) => {
+        const { id } = req.params;
+        try {
+            const items = await Item.find({ hotel_id: id });
+            if (items.length > 0) {
+                res.status(200).json({
+                    exist: true,
+                    _id: items[0]._id,
+                    quantity: items[0].quantity
+                });
+            } else {
+                res.status(200).json({ exist: false });
+            }
+        } catch (err) {
+            return res.status(500).json({ msg: err.message });
+        }
+    },
     createItem: async (req, res) => {
         const { name, price, quantity, user_id, hotel_id } = req.body;
 

@@ -16,6 +16,7 @@ import logger from './middleware/logger.js';
 import userRoutes from './routes/user.js';
 import hotelRoutes from './routes/hotel.js';
 import itemRoutes from './routes/item.js';
+import paymentRoutes from './routes/payment.js';
 
 // load environment variables
 dotenv.config();
@@ -54,6 +55,7 @@ app.use(logger);
 app.use('/api', userRoutes);
 app.use('/api', hotelRoutes);
 app.use('/api', itemRoutes);
+app.use('/api', paymentRoutes);
 
 // handle 404
 app.use('*', (req, res) => {
