@@ -8,7 +8,6 @@ const router = express.Router();
 const { getUserItems, createItem, updateItem, deleteItem } = itemControllers;
 
 // routes
-
 router.get('/items/user/:id', verifyToken, getUserItems);
 router.post('/items', verifyToken, createItem);
 router.put('/items/:id', verifyToken, updateItem);
