@@ -1,5 +1,5 @@
-import path, { dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import path, { dirname } from 'node';
+import { fileURLToPath } from 'node';
 
 import cors from 'cors';
 import dotenv from 'dotenv';
